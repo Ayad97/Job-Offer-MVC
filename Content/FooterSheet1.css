@@ -1,0 +1,205 @@
+﻿    body {
+}
+.full {
+    width: 100%;
+    padding: 10px;
+    margin-bottom:5px;
+    border:0;
+    border-radius:10px;
+    font-family:'Bauhaus 93';
+    text-align:left;
+}
+.full:active{
+    border:0;
+}
+
+.gap {
+    height: 30px;
+    width: 100%;
+    clear: both;
+    display: block;
+}
+
+.footer {
+    background:url(../img/footer_bg.png) center center no-repeat;
+    background-color: #12102a;
+    height: auto;
+    padding-bottom: 30px;
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #DDDDDD;
+    text-align: center
+}
+
+.footer p {
+    margin: 0;
+    color: #feb64a;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color:#12102a
+}
+
+.footer img {
+    max-width: 100%;
+}
+
+.footer h3 {
+    border-bottom: 1px solid #BAC1C8;
+    color: lightyellow;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    padding: 40px 0 10px;
+    text-transform: uppercase;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:#12102a
+}
+
+    .footer ul {
+        font-size: 13px;
+        list-style-type: none;
+        margin-left: 0;
+        padding-left: 0;
+        margin-top: 15px;
+        background-color: #12102a
+    }
+
+.footer ul li a {
+    padding: 0 0 6px 0;
+    display: block;
+    color: #feb64a;
+    text-decoration: none;
+    font-family: Bahnschrift;
+   
+}
+.footer ul li a:hover{
+   
+    color:#fff;
+    
+    border-radius:50%;
+    transform:scale(1.1);
+    transition:.3s ease-in-out;
+    transform:scale(1.06);
+}
+.footer .footer-ul{
+    list-style-type:square;
+    color:#DDDDDD;
+    
+}
+.footer .footer-ul li a {
+    text-align: left;
+    padding: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight:bold;
+}
+
+.footer a {
+    color: #78828D
+}
+
+.supportLi h4 {
+    font-size: 20px;
+    font-weight: lighter;
+    line-height: normal;
+    margin-bottom: 0 !important;
+    padding-bottom: 0;
+}
+.footer address {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight:bold;
+    color: #feb64a;
+}
+.newsletter-box input#appendedInputButton {
+    background: #FFFFFF;
+    display: inline-block;
+    float: left;
+    height: 30px;
+    clear: both;
+    width: 100%;
+}
+
+.newsletter-box .btn {
+    border: medium none;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    
+    border-radius: 25px;
+    display: inline-block;
+    height: 40px;
+    padding: 0;
+    width: 100%;
+    color: #fff;
+}
+
+.newsletter-box {
+    overflow: hidden;
+}
+
+.bg-gray {
+    background-image: -moz-linear-gradient(center bottom, #BBBBBB 0%, #F0F0F0 100%);
+    box-shadow: 0 1px 0 #B4B3B3;
+    border-radius: 25px;
+    border: 0px;
+}
+
+.social li {
+    background: none repeat scroll 0 0 #000;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    float: left;
+    line-height: 36px;
+    margin: 0 8px 0 0;
+    padding: 0;
+    text-align: center;
+    width: 36px;
+    transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+}
+
+.social li:hover {
+    transform: scale(1.15) rotate(360deg);
+    -webkit-transform: scale(1.1) rotate(360deg);
+    -moz-transform: scale(1.1) rotate(360deg);
+    -ms-transform: scale(1.1) rotate(360deg);
+    -o-transform: scale(1.1) rotate(360deg);
+    line-height: 36px;
+        border-radius:50%;
+  
+}
+
+
+.social li a {
+    color: #EDEFF1;
+    height:36px;
+    border-radius:50%;
+    border: 2px solid #B5B5B5;
+}
+.social li a:hover{
+    border-radius:50%;
+}
+.social li a i {
+    font-size: 16px;
+    color: #EDEFF1 !important;
+}
+
+.footer-bottom {
+    background: #E3E3E3;
+    border-top: 1px solid #DDDDDD;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.footer-bottom p.pull-left {
+    padding-top: 6px;
+}
+
+.payments {
+    font-size: 1.5em;
+    margin-right:40px;
+}
+.footer .lead{
+    color:#feb64a
+}

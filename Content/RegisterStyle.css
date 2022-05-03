@@ -1,0 +1,58 @@
+﻿body {
+  margin-top: 30px;
+ 
+}
+h2,label{
+    font-family:Bahnschrift;
+}
+.form-control {
+    border: 1px solid #000;
+    font-family:Bahnschrift;
+}
+.sectionContaian {
+    /*background-image: url('../img/svg (1).png');*/
+}
+.input-st, select/*,input[type=text] , input[type=password], input[type=email]*/{
+    border: none;
+    outline: none;
+    width: 93%;
+    text-align: left;
+    display: inline-block;
+    background-color: transparent;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #262626;
+    padding: 10px;
+    font-family: 'Nunito', sans-serif;
+    
+}
+.input-st:active,.input-st:focus{
+    border: 2px solid #000;
+    border-radius: 20px 10px;
+    
+    transition:.2s ease-out;
+
+}
+select {
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 20px 10px;
+}
+select[multiple] option{
+    white-space:normal;
+}
+select[multiple]
+{
+
+    height:6rem;
+}
+.btn-sb {
+    width: 93%;
+    margin-top:20px;
+    padding: 10px;
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px 10px;
+    background-color: #feb64a
+}
