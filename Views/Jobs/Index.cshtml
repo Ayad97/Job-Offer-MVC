@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ASP_IDENTITY.Models.Job>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/RegisterStyle.css" rel="stylesheet">
+
+<div class="container">
+
+    <h2>
+        Job Management
+    </h2>
+
+    <p>
+        @Html.ActionLink("Add New Job", "Create")
+    </p>
+    <table class="table table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.category.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTittle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobContent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobImage)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.category.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobTittle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobContent)
+                </td>
+                <td>
+                    <img class="img-responsive img-rounded" src="~/Uploads/@Html.DisplayFor(Model=> item.JobImage)" style="width:50px ; height:50px;" />
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }, htmlAttributes: new { @class = "btn btn-primary" }) 
+                    @Html.ActionLink("Details", "Details", new { id = item.id }, htmlAttributes: new { @class = "btn btn-warning" }) 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id }, htmlAttributes: new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

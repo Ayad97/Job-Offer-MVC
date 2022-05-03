@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ASP_IDENTITY.Models.JobsViewModel>
+
+@{
+    ViewBag.Title = "GetJobsByPublisher";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/RegisterStyle.css" rel="stylesheet">
+<div class="container">
+    <h3></h3>
+   @foreach (var gr in Model)
+   {
+<h3>@gr.JobTitle </h3>
+    <table class="table table-bordered table-hover">
+        <tr>
+            
+            <th>
+              UserName
+            </th>
+            <th>
+                Message
+            </th>
+            <th>
+              Apply Date
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in gr.Items)
+        {
+            <tr>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplyDate)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+   }
+</div>

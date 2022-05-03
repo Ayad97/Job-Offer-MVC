@@ -1,0 +1,87 @@
+﻿@using Microsoft.AspNet.Identity
+@using ASP_IDENTITY.Models;
+@if (Request.IsAuthenticated)
+{
+
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        var db = new ApplicationDbContext();
+        var UserId = User.Identity.GetUserId();
+        var CurrentUser = db.Users.Where(a => a.Id == UserId).SingleOrDefault();
+        
+
+        @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                @*<span class = "glyphicon glyphicon-user" ></span>*@
+                <strong>
+                    Hello : @CurrentUser.UserName
+                </strong>
+                <b class="glyphicon glyphicon-chevron-down" ></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <div class="nav-user">
+                       <div class="row">
+
+                           <div class="col-sm-12 col-md-3 text-center">
+                               <span class="glyphicon glyphicon-user" style="font-size:70px;"></span>
+                           </div>
+                           <div class="col-sm-12 col-md-9 text-center">
+                               <h4 class="headdrop">Email : @CurrentUser.Email</h4>
+                               <br />
+                               @if (CurrentUser.UserType == "Publisher")
+                               {
+                                   <a href="~/Home/GetJobsByPublisher" class="usertypelist">Jobs You Published</a>
+                                   <a href="~/Jobs/Create" class="usertypelist">Add New Job</a>
+                                   <a href="~/Jobs/GetJobsByUser" class="usertypelist">Show All Job Applied</a>
+                               }
+                               else if (CurrentUser.UserType == "Admins")
+                               {
+                                   <a href="~/Categories/Create" class="usertypelist">Add new Category</a>
+                                   <a href="~/Role/Create" class="usertypelist">Add new Job Type</a>
+                                   <a href="~/AddSponsors/Create" class="usertypelist">Add New Sponsor</a>
+                                   <a href="~/Articles/Create" class="usertypelist">Add New Article</a>
+                                   <a href="~/TeamInfoes/Create" class="usertypelist">Add New Team Memmber</a>
+                                   <a href="~/Categories/Index" class="usertypelist">Show all Category</a>
+                                   <a href="~/Role/Index" class="usertypelist">Show all Job Type</a>
+                                   <a href="~/AddSponsors/Index" class="usertypelist">Show all Sponsors</a>
+                                   <a href="~/Testemonials/Index" class="usertypelist">Show all Testemonials</a>
+                               }
+                               else
+                               {
+                                   <a href="~/Home/GetJobsByUser" class="usertypelist">Jobs You Applied</a>
+
+                               }
+
+                               <a href="~/Account/EditProfile" class="usertypelist">Edit Account</a>
+                               <a href="~/Manage/Index" class="usertypelist">Manage Account</a>
+                           </div>
+                       </div>
+                    </div>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="javascript:document.getElementById('logoutForm').submit() " class="btn btn-danger btn-block btn-logoff" >Log off</a>
+                </li>
+            </ul>
+
+        </li>
+       @*<li class="dropdown">
+             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" , @class = "glyphicon glyphicon-chevron-down" })
+            
+
+        </li>*@
+       @* <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>*@
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "glyphicon glyphicon-user" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "glyphicon glyphicon-log-in" })</li>
+    </ul>
+}

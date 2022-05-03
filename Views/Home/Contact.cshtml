@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<link href="~/Content/RegisterStyle.css" rel="stylesheet">
+<section class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 contact-details">
+                <h2 class="contact-head"><i class="fa  fa-comments" style="color: #feb64a"></i> @ViewBag.Title.</h2>
+               
+
+                <address class="address">
+                    One Microsoft Way<br />
+                    <i class="fa fa-map-marker"></i>  Redmond, WA 98052-6399<br />
+                    <i class="fa fa-phone"></i>
+                    425.555.0100
+                </address>
+
+                <address>
+                    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+                    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+                </address>
+            </div>
+            <div class="col-sm-12 col-md-6 send-message">
+                <div class="formContact">
+                    <h4 class="text-center send-head">Contact Us</h4>
+                    <h6 class="text-center">We'd Like to Hear From You!</h6>
+                    <div class="formContains">
+                        <form action="" method="post">
+
+
+                            <div class="form-group">
+                                <label class="">Name *</label>
+                                <input type="text" class="form-control" placeholder="Enter Name" />
+                            </div>
+                            <div class="form-group">
+                                <label class="">Email *</label>
+                                <input type="email" class="form-control"placeholder="Enter Email" />
+                            </div>
+                            @*<div class="form-group">
+                                <label class="">Mobile *</label>
+                                <input type="tel" class="form-control"placeholder="Enter Mobile Number" />
+                            </div>*@
+                            <div class="form-group">
+                                <label class="">Message *</label>
+                                <textarea class="form-control" cols="90" rows="5" placeholder="Enter Your Message"></textarea>
+                            </div>
+                            <input type="submit" name="Submit" value="Submit" class="btn btn-success"/>
+                        </form>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

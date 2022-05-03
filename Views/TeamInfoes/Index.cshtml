@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ASP_IDENTITY.Models.TeamInfo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/RegisterStyle.css" rel="stylesheet">
+
+
+    <h2 style="margin-top:50px;">Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamUsername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamWorkTittle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamAbout)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamEmailF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamEmailT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamEmailI)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamEmailL)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img class="img-responsive img-rounded" src="~/img/Team/@item.TeamImage" style="width:100px ; height:100px;" />
+                </td>
+                <td style="width:100px;">
+                    @Html.DisplayFor(modelItem => item.TeamUsername)
+                </td>
+                <td style="width:100px;">
+                    @Html.DisplayFor(modelItem => item.TeamWorkTittle)
+                </td>
+                <td style="width:100px;">
+                    @Html.DisplayFor(modelItem => item.TeamAbout)
+                </td>
+                <td ">
+                    @Html.DisplayFor(modelItem => item.TeamEmailF)
+                </td>
+                <td ">
+                    @Html.DisplayFor(modelItem => item.TeamEmailT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamEmailI)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamEmailL)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>

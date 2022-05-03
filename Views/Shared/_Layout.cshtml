@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/img/wuzzuf-squarelogo-1586535330103.png">
+    <title>@ViewBag.Title - Wazzaf</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Corinthia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Island+Moments&family=Josefin+Sans:wght@500&family=Pushster&family=Work+Sans:wght@100&family=Yanone+Kaffeesatz:wght@600&display=swap" rel="stylesheet">
+    <link href="~/Content/normalize.css" rel="stylesheet" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/FooterSheet1.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/stylehome.css" rel="stylesheet" type="text/css" />
+
+
+    @*@Styles.Render("~/Content/stylehome.css")
+        @Styles.Render("~/Content/FooterSheet1.css")*@
+
+</head>
+<body id="id01">
+
+    <div class="navbar navbar-inverse navbar-fixed-top ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Wazzaf", "Index", "JOIN", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "JOIN")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Services", "Services", "Home")</li>
+                    <li>@Html.ActionLink("Blog", "IndexDetails", "Articles")</li>
+                    <li>@Html.ActionLink("Jobs", "AllViewData", "Categories")</li>
+                    <li>@Html.ActionLink("Contact", "Create", "Contacts")</li>
+                    <li>
+                        @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+                        {
+                            <input name="SearchName" id="SearchName" type="text" placeholder="Search For Job" />
+                        }
+
+                    </li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div  class="body-contet">
+
+        @RenderBody()
+    </div>
+    <footer>
+
+        <hr />
+        <div class="footer" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                        <h3>Web UI EXPERT</h3>
+
+
+
+
+                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at Donec lacinia congue felis in faucibus.
+                        </p>
+                        <ul class="social list-inline text-center">
+                            <li> <a href="#"> <i class=" fa fa-facebook text-center"></i></a></li>
+                            <li> <a href="#"> <i class="fa fa-twitter"></i></a></li>
+                            <li> <a href="#"> <i class="fa fa-google-plus"></i></a></li>
+                            <li> <a href="#"> <i class="fa fa-pinterest"></i></a></li>
+                            <li> <a href="#"> <i class="fa fa-youtube"></i> </a></li>
+                        </ul>
+
+
+                    </div>
+
+                    <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
+                        <h3> Company </h3>
+                        <ul class="footer-ul">
+                            <li> <a href="@Url.Action("Index", "Home")"> Home </a> </li>
+                            <li> <a href=" @Url.Action("About", "Home")">Abou Us </a> </li>
+                            <li> <a href="#"> Our Customers  </a> </li>
+                            <li> <a href="#"> Meet Our Team </a> </li>
+                            <li> <a href=" @Url.Action("Contact", "Home")">Contact Us </a> </li>
+
+                        </ul>
+
+                    </div>
+                    <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
+                        <h3> Our Services </h3>
+                        <ul class="footer-ul">
+                            <li> <a href="#"> Web Design </a> </li>
+                            <li> <a href="#"> Web Development </a> </li>
+                            <li> <a href="#"> Graphic Design </a> </li>
+                            <li> <a href="#">  UI/UX </a> </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
+                        <h3> Contact Us </h3>
+                        <ul>
+                            <li>
+                                <div class="input-append newsletter-box text-center">
+
+                                    <address>
+                                        One Microsoft Way<br />
+                                        Redmond, WA 98052-6399<br />
+
+                                    </address>
+
+                                    <address>
+
+                                        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+                                    </address>
+                                </div>
+                            </li>
+                        </ul>
+                       
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </div>
+        <!--/.footer-->
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="pull-left"> Copyright © Footer E-commerce Plugin 2021. All right reserved. </p>
+                <div class="pull-right">
+                    <ul class="nav nav-pills payments">
+                        <li><i class="fa fa-cc-visa"></i></li>
+                        <li><i class="fa fa-cc-mastercard"></i></li>
+                        <li><i class="fa fa-cc-amex"></i></li>
+                        <li><i class="fa fa-cc-paypal"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--/.footer-bottom-->
+    </footer>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/jquery.nicescroll.min.js"></script>
+    <script src="~/Scripts/wow.min.js"></script>
+    <script>
+        //$(function () {
+        //    'use strict';
+        //    $('#id01').niceScroll({
+        //        cursorcolor: '#000',
+        //        cursorwidth: 4,
+        //        cursorborder: '1px solid #fff',
+
+        //    });
+        //});
+        new WOW().init();
+    </script>
+</body>
+</html>

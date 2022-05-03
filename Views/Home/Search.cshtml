@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ASP_IDENTITY.Models.Job>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/RegisterStyle.css" rel="stylesheet">
+
+
+    <div class="category panel panel-default">
+        <h2 class="page-header">Search Result</h2>
+
+
+        <div class="row ">
+            <div class="container">
+
+                @foreach (var subItem in Model)
+                {
+                    if (Model != null)
+                    {
+
+                        <div class="col-xs-12 col-sm-6  col-lg-3">
+                            <div class="cat_dt">
+                                <div>
+                                    <img src="~/Uploads/@subItem.JobImage" class="img-responsive img_category thumbnail" />
+
+                                </div>
+
+                                <h5>Job Tittle : @Html.DisplayFor(ModelItem => subItem.JobTittle)</h5>
+                                <h6> @Html.DisplayFor(ModelItem => subItem.JobContent)</h6>
+                                <a href="@Url.Action("Details", "Home", new { jobId = subItem.id })" class="btn btn-danger btn-category">Details</a>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+    </div>

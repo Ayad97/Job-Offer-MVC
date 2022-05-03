@@ -1,0 +1,94 @@
+﻿@model ASP_IDENTITY.Models.TeamInfo
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/RegisterStyle.css" rel="stylesheet">
+
+<div class="container">
+
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>TeamInfo</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TeamImage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TeamImage)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TeamUsername)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TeamUsername)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TeamWorkTittle)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TeamWorkTittle)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TeamAbout)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TeamAbout)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TeamEmailF)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TeamEmailF)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TeamEmailT)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TeamEmailT)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TeamEmailI)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TeamEmailI)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TeamEmailL)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TeamEmailL)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</div>

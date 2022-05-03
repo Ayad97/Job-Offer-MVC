@@ -1,0 +1,292 @@
+﻿@using ASP_IDENTITY.Models
+@using Microsoft.AspNet.Identity
+@model IEnumerable <ASP_IDENTITY.Models.Category >
+
+@{
+
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row aligned-row">
+            <div class=" col-md-8">
+                <h2 class="apply_hd">
+                    Join us & Explore thousands of Jobs
+                </h2>
+                <hr style="color:aqua;" />
+                <p class="lead">Donec ut condimentum dui. Mauris vestibulum eros lacus, in ultricies nulla malesuada ac. Praesent semper leo a libero ultrices tempus.</p>
+                <p><a href="@Url.Action("Register", "Account")" class="btn btn-danger btn-lg btn-rg">Apply Now &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <img src="~/img/Designer _Flatline (5).png" class="img-responsive img_ds" />
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="services">
+    <div class="row   det_int">
+        <div class="container ">
+
+            <div class=" col-md-3">
+                <div>
+                    <img src="~/img/Data processing _Flatline.png" class="img-circle img-responsive img-about" />
+                </div>
+                <h2 class="head-about">Data Processing</h2>
+                <hr class="hr-about" />
+                <p class="lead p-about">
+                    ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                    enables a clean separation of concerns and gives you full control over markup
+                    for enjoyable, agile development.
+                </p>
+                <p><a class="btn btn-default btn-about" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            </div>
+
+            <div class=" col-md-3">
+                <div>
+                    <img src="~/img/Online protection_Monochromatic.png" class="img-circle img-responsive img-about" />
+                </div>
+                <h2 class="head-about">Security</h2>
+                <hr class="hr-about" />
+                <p class="lead p-about">
+                    ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                    enables a clean separation of concerns and gives you full control over markup
+                    for enjoyable, agile development.
+                </p>
+                <p><a class="btn btn-default btn-about" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            </div>
+
+            <div class="col-md-3">
+                <div>
+                    <img src="~/img/Web Developer_Flatline.png" class="img-circle img-responsive img-about" />
+                </div>
+                <h2 class="head-about">Developing</h2>
+                <hr class="hr-about" />
+                <p class="lead p-about">NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+                <p><a class="btn btn-default btn-about" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+            </div>
+
+            <div class="col-md-3">
+                <div>
+                    <img src="~/img/Designer _Isometric.png" class="img-circle img-responsive img-about" />
+                </div>
+                <h2 class="head-about">Web Designe</h2>
+                <hr class="hr-about" />
+                <p class="lead p-about">You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+                <p><a class="btn btn-default btn-about" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+
+@foreach (var item in Model)
+{
+    <div class="category ">
+        <h2>@Html.DisplayFor(ModelItem => item.CategoryName)<hr class="hr-category" /></h2>
+
+        <h4>@Html.DisplayFor(ModelItem => item.CategoryDescription)</h4>
+
+
+        <div class="row">
+            <div class="container">
+
+                @foreach (var subItem in item.jobs)
+                {
+                    if (item.jobs != null)
+                    {
+
+                        <div class="col-xs-12 col-sm-6 col-lg-3">
+                            <div class="cat_dt">
+                                <div>
+                                    <img src="~/Uploads/@subItem.JobImage" class="img-responsive img_category thumbnail" />
+
+                                </div>
+
+                                <h5> <span>Job Tittle :</span> @Html.DisplayFor(ModelItem => subItem.JobTittle)</h5>
+                                <h6> <span>Serch For :</span> @Html.DisplayFor(ModelItem => subItem.JobContent)</h6>
+                                <h5> <span>Job Publisher :</span> @Html.DisplayFor(ModelItem => subItem.User.UserName)</h5>
+                                <a href="@Url.Action("Details", "Home", new { jobId = subItem.id })" class="btn btn-danger btn-category">Details</a>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+
+}
+@*@foreach (var item in Model)
+{
+    <div class="Testimonial">
+        <div class="container">
+            <div class="col-md-12">
+                <div id="CourselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#CourselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#CourselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#CourselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <h2 class="text-center">Our Clients Testimonial</h2>
+                    <hr class="hr-category" />
+                    <div class="carousel-inner">
+                        <div class="item active ">
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <div class="single-box">
+                                        <div class="img-area">
+                                            <img src="~/Testphoto/@item." class="img-responsive img_category thumbnail" />
+                                        </div>
+                                        <div class="img-text">
+                                            <h2>@item.User.UserName</h2>
+
+                                            <p>
+                                                <i class="fa fa-quote-left pr-2"></i>
+                                                @item.message
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}*@
+<div class="sponsor">
+    <div class="container">
+        <h2 class="text-center">Our Sponsor</h2>
+        <hr class="hr-category" />
+        <div class="row">
+
+            <div class="col-md-2">
+                <div>
+                    <img class="img-responsive" src="~/img/sp1.png" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div>
+                    <img class="img-responsive" src="~/img/sp2.png" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div>
+                    <img class="img-responsive" src="~/img/sp3.png" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div>
+                    <img class="img-responsive" src="~/img/sp4.jpg" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div>
+                    <img class="img-responsive" src="~/img/sp5.jpg" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div>
+                    <img class="img-responsive" src="~/img/sp6.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="faq">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <section class="accordion-section clearfix mt-3" aria-label="Question Accordions">
+                    <div class="container">
+
+                        <h2 class="text-center">Frequently Asked Questions </h2>
+                        <hr class="hr-category" />
+
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
+                                    <h3 class="panel-title">
+                                        <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse0" aria-expanded="true" aria-controls="collapse0">
+                                            What are the benefits of Solodev CMS?
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div id="collapse0" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading0">
+                                    <div class="panel-body px-3 mb-4">
+                                        <p>
+                                            With Solodev CMS, you and your visitors will benefit from a finely-tuned technology stack that           drives the highest levels of site performance, speed and engagement - and contributes                   more to your bottom line. Our users fell in love with:
+                                        </p>
+                                        <ul>
+                                            <li>Light speed deployment on the most secure and stable cloud infrastructure available on the market.</li>
+                                            <li>Scalability – pay for what you need today and add-on options as you grow.</li>
+                                            <li>All of the bells and whistles of other enterprise CMS options but without the design limitations - this CMS simply lets you realize your creative visions.</li>
+                                            <li>Amazing support backed by a team of Solodev pros – here when you need them.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading p-3 mb-3" role="tab" id="heading1">
+                                    <h3 class="panel-title">
+                                        <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                            How easy is it to build a website with Solodev CMS?
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+                                    <div class="panel-body px-3 mb-4">
+                                        <p>Building a website is extremely easy. With a working knowledge of HTML and CSS you will be able to have a site up and running in no time.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                                    <h3 class="panel-title">
+                                        <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                                            What is the uptime for Solodev CMS?
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                                    <div class="panel-body px-3 mb-4">
+                                        <p>Using Amazon AWS technology which is an industry leader for reliability you will be able to experience an uptime in the vicinity of 99.95%.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading p-3 mb-3" role="tab" id="heading3">
+                                    <h3 class="panel-title">
+                                        <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                                            Can Solodev CMS handle multiple websites for my company?
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+                                    <div class="panel-body px-3 mb-4">
+                                        <p>Yes, Solodev CMS is built to handle the needs of any size company. With our Multi-Site Management, you will be able to easily manage all of your websites.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

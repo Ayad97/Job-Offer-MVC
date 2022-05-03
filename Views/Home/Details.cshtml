@@ -1,0 +1,55 @@
+﻿@model ASP_IDENTITY.Models.Job
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/RegisterStyle.css" rel="stylesheet">
+<div class="container">
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>Job Details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @*@Html.DisplayNameFor(model => model.JobImage)*@
+            </dt>
+
+            <dd>
+                <img class="img-responsive thumbnail" src="~/Uploads/@Html.DisplayFor(Model=> Model.JobImage)" style="width:350px ; height:220px; padding:10px;" />
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.category.CategoryName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.category.CategoryName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.JobTittle)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.JobTittle)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.JobContent)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.JobContent)
+            </dd>
+
+
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Apply to Job", "Apply", new { id = Model.id }, htmlAttributes: new { @class = "btn btn-success" }) 
+        @Html.ActionLink("Back to Home", "Index","", htmlAttributes: new { @class = "btn btn-primary" })
+    </p>
+</div>

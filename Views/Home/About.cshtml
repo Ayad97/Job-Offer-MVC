@@ -1,0 +1,133 @@
+﻿@using ASP_IDENTITY.Models
+@model Tuple<List<ApplyForJob>, List<TeamInfo>>
+@{
+    ViewBag.Title = "About";
+}
+<link href="~/Content/RegisterStyle.css" rel="stylesheet">
+<section class="aboutPage">
+    <div class="container">
+        @*<h2>@ViewBag.Title.</h2>
+            <h3>@ViewBag.Message</h3>
+
+            <p>Use this area to provide additional information.</p>*@
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="carousel slide" id="mycarousel" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#mycarousel" data-slide-to="1" class=""></li>
+                        <li data-target="#mycarousel" data-slide-to="2" class=""></li>
+
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <h1 class="about-head">About <br /> Us</h1>
+                            <p class="about-p">
+                                patterns-based way to build dynamic websites that
+                                enables a clean separation of concerns and gives you full control over markup
+                                for enjoyable, agile development.
+                            </p>
+                            <a class="btn btn-primary about-btn" href="#">Read More</a>
+                        </div>
+                        <div class="item">
+                            <h1 class="about-head">Register <br /> Now</h1>
+                            <p class="about-p">
+                                patterns-based way to build dynamic websites that
+                                enables a clean separation of concerns and gives you full control over markup
+                                for enjoyable, agile development.
+                            </p>
+                            <a class="btn btn-primary about-btn" href="#">Register Now</a>
+                        </div>
+                        <div class="item">
+                            <h1 class="about-head">Contact <br /> Us</h1>
+                            <p class="about-p">
+                                patterns-based way to build dynamic websites that
+                                enables a clean separation of concerns and gives you full control over markup
+                                for enjoyable, agile development.
+                            </p>
+                            <a class="btn btn-primary about-btn" href="#">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <img src="~/img/Progress _Monochromatic.png" class="img-responsive about-img" />
+                </div>
+            </div>
+        </div>
+        <div class="expert">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 class="expert-head">School Experience </h3>
+                    <p>Praesent pulvinar massa nec augue malsuada in aliquam odio interdum. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante <a href="#" class="highlighter">malesuada</a> arca Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus. Phasellus lorem augue, vulputate vel orci id, ultricies aliquet risus.</p>
+                    <ul class="expert-list">
+                        <li>Lorem ipsum dolor sit euismod diam pulvinar massa nec augue</li>
+                        <li>Praesent convallis nibh ollicitudin sit amet massa nec augue</li>
+                        <li>Nullam ac sapien sit ac malesuada arca in aliquam odio inter</li>
+                        <li>Phasellus auctor augue adipiscing lobortis ligula lacinia sceler estas</li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item active">
+                            <a class="nav-link " data-toggle="tab" href="#home">Happinies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#menu1">Musically</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#menu2">Painting</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div id="home" class="container tab-pane active">
+                            <br>
+                            <h3>Happinies</h3>
+                            <p>Tab 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit elit turpis, a porttitor tellus sollicitudin at. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet</p>
+                        </div>
+                        <div id="menu1" class="container tab-pane fade">
+                            <br>
+                            <h3>Musically</h3>
+                            <p>Tab 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit elit turpis, a porttitor tellus sollicitudin at. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet</p>
+                        </div>
+                        <div id="menu2" class="container tab-pane fade">
+                            <br>
+                            <h3>Painting</h3>
+                            <p>Tab 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit elit turpis, a porttitor tellus sollicitudin at. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="taem-Info">
+            <h2 class="text-center team-head">Our Team</h2>
+            <div class="row">
+                @foreach (var item in Model.Item2)
+                    {
+                <div class="col-sm-12 col-md-4 col-lg-3 team-details">
+                    <div class="team-img">
+                        <img src="~/img/Team/@item.TeamImage" class="img-responsive img-rounded" ; />
+                    </div>
+                    <div class="team-tittle">
+                        <h4>@item.TeamUsername</h4>
+                        <p class="team-worktittle"><q>@item.TeamWorkTittle</q></p>
+                        <p class="team-about">@item.TeamAbout</p>
+                    </div>
+                    <div class="team-social">
+                        <a href=""><i class="fa fa-facebook"></i></a>
+                        <a href=""><i class="fa fa-twitter"></i></a>
+                        <a href=""><i class="fa fa-instagram"></i></a>
+                        <a href=""><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
