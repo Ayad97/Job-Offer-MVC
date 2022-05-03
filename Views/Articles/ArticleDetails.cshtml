@@ -1,0 +1,88 @@
+﻿@model ASP_IDENTITY.Models.Article
+
+@{
+    ViewBag.Title = "ArticleDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/RegisterStyle.css" rel="stylesheet">
+<link href="~/Content/ArticleStyle.css" rel="stylesheet" />
+<div class="container">
+
+    
+   
+    <div class="ArticleDetails">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href=@Url.Action("Index","JOIN")>Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Blogs</li>
+            </ol>
+        </nav>
+        <div class="row">
+            <div class="col-12 col-sm-8 offset-sm-1">
+                <div class="card mb-4">
+                    <img class="img-responsive img-artdetails" src="~/Testphoto/@Model.BlogImage" alt="Card image cap">
+
+                    <div class="card-body">
+                        <h2 class="card-title">@Model.BlogTittle </h2>
+                        <p class="card-text">@Model.BlogArticle</p>
+                        <blockquote class="alignright qot-details">
+                            <q>@Model.BlogArticle</q>
+                        </blockquote>
+                        <p class="card-text">@Model.BlogArticle</p>
+                    </div>
+
+                    <div class="input-group mb-3 card-footer text-muted">
+                        <div>
+                            <span style="color: #33305c ; font-weight:bold"> Posted on </span>@Model.ReturnDate.ToString("dd/MM/yyyy") by
+
+
+                            <img src="~/img/login.jpg" alt="error" class="img-fluid" style="width: 50px; height: 50px;border-radius: 50%;">
+                            <span style="color: #33305c ; font-weight:bold">@Model.User.UserName</span>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <hr />
+
+                <h2 class="comment-article">Comments</h2>
+                <div class="media comm panel panel-default">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object img-post img-circle" src="~/img/login.jpg" alt="img not found">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h6><a href="" class="head-post">@Model.User.UserName </a></h6>
+
+                        <p class="p-comment">To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure.</p>
+                        <span> @Model.ReturnDate </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="card arc-time">
+                    <h4>Work Hours</h4>
+                    <ul class="class-hr">
+                        <li>Sunday <span>9am - 2pm</span></li>
+                        <li>Monday <span>9am - 2pm</span></li>
+                        <li>Tuesday <span>9am - 2pm</span></li>
+                        <li>Wednesday <span>9am - 2pm</span></li>
+                        <li>Thursday <span>9am - 2pm</span></li>
+                        <li>Friday <span>Holiday</span></li>
+                        <li>Saturday <span>Holiday</span></li>
+
+                    </ul>
+                </div>
+                <div>
+                    <iframe src="https://player.vimeo.com/video/38259685?title=0&amp;byline=0&amp;portrait=0&amp;color=00ffb6" width="100%" height="205" style="outline: none; border: none"></iframe>
+                </div>
+                <p><strong><span style="color: #008c99">We care</span> about your dearest..</strong></p>
+
+
+            </div>
+        </div>
+    </div>
+</div>

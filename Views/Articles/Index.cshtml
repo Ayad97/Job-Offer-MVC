@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ASP_IDENTITY.Models.Article>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/RegisterStyle.css" rel="stylesheet">
+
+<div class="container">
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogTittle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogArticle)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.ReturnDate)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img class="img-responsive img-rounded" src="~/Testphoto/@Html.DisplayFor(Model=> item.BlogImage)" style="width:100px ; height:100px;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BlogTittle)
+                </td>
+                <td style="width:200px;">
+                    @Html.DisplayFor(modelItem => item.BlogArticle)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReturnDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

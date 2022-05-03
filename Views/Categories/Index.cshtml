@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ASP_IDENTITY.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/RegisterStyle.css" rel="stylesheet">
+
+<div class="container">
+    <h2>
+        Category management
+    </h2>
+
+    <p>
+        @Html.ActionLink("Add New Category", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryDescription)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryDescription)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }, htmlAttributes: new { @class = "btn btn-primary" }) 
+                    @Html.ActionLink("Details", "Details", new { id = item.id }, htmlAttributes: new { @class = "btn btn-warning" }) 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id }, htmlAttributes: new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

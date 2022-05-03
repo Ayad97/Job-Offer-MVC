@@ -1,0 +1,47 @@
+﻿@model ASP_IDENTITY.Models.AddSponsor
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/RegisterStyle.css" rel="stylesheet">
+
+<div class="container">
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>AddSponsor</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.sponsorImage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.sponsorImage)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.sponsorTittle)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.sponsorTittle)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.sponsorContent)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.sponsorContent)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

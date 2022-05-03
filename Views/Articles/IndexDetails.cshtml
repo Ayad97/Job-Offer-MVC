@@ -1,0 +1,102 @@
+﻿
+@model IEnumerable<ASP_IDENTITY.Models.Article>
+@{
+    ViewBag.Title = "IndexDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/RegisterStyle.css" rel="stylesheet">
+<link href="~/Content/ArticleStyle.css" rel="stylesheet" />
+<div class="container">
+
+    <div class="row aboutPage">
+        <div class="col-md-4">
+            <div class="carousel slide" id="mycarousel" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#mycarousel" data-slide-to="1" class=""></li>
+                    <li data-target="#mycarousel" data-slide-to="2" class=""></li>
+
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <h1 class="about-head">Our <br /> Blogs</h1>
+                        <p class="about-p">
+                            patterns-based way to build dynamic websites that
+                            enables a clean separation of concerns and gives you full control over markup
+                            for enjoyable, agile development.
+                        </p>
+                        <a class="btn btn-primary about-btn" href="#">Read More</a>
+                    </div>
+                    <div class="item">
+                        <h1 class="about-head">Register <br /> Now</h1>
+                        <p class="about-p">
+                            patterns-based way to build dynamic websites that
+                            enables a clean separation of concerns and gives you full control over markup
+                            for enjoyable, agile development.
+                        </p>
+                        <a class="btn btn-primary about-btn" href="#">Register Now</a>
+                    </div>
+                    <div class="item">
+                        <h1 class="about-head">Contact <br /> Us</h1>
+                        <p class="about-p">
+                            patterns-based way to build dynamic websites that
+                            enables a clean separation of concerns and gives you full control over markup
+                            for enjoyable, agile development.
+                        </p>
+                        <a class="btn btn-primary about-btn" href="#">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div>
+                <img src="~/img/Data processing _Monochromatic.png" class="img-responsive about-img" />
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="Blogs">
+            <div class="container">
+                
+                <hr class="hr-category" />
+                <div class="row">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div>
+                                    <img class="card-img img-responsive" src="~/Testphoto/@item.BlogImage" alt="Bologna" />
+                                </div>
+
+                                <div class="card-img-overlay">
+                                    <a href="#" class="btn btn-success btn-sm btn-blog">Article</a>
+                                </div>
+
+                                <div class="card-body">
+                                    <h4 class="card-title">@item.BlogTittle</h4>
+
+                                    <p class="card-text">@item.BlogArticle</p>
+                                    <a href="@Url.Action("ArticleDetails", "Articles",new { articleId = item.id})" class="btn btn-info btn-cardblog">Read More <i class="fa fa-chevron-circle-right"></i></a>
+                                </div>
+
+                                <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+
+                                    <div class="publisherBy ">
+                                        <h5><span style="font-weight: bold; color: #33305c; margin-right: 5px;">Posted on </span><span>@item.ReturnDate.ToString("MM/dd/yyyy")</span>  <span style="margin-left:10px">by</span> <img src="~/img/login.jpg" alt="error" class="img-fluid" style="width: 50px; height: 35px; border-radius: 50%; margin-left: 10px;; margin-right: 10px;"><span style="font-weight: bold; color: #33305c">@item.User.UserName</span>  </h5>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>  

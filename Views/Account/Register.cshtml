@@ -1,0 +1,66 @@
+﻿@model ASP_IDENTITY.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+<link href="~/Content/RegisterStyle.css" rel="stylesheet">
+<section class="sectionContaian">
+    <div class="container">
+        <h2>@ViewBag.Title</h2>
+        <div class="row reg-data">
+            <div class="col-md-8">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                   
+                    <hr />
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "input-st", placeholder = "Please Enter " + @Html.DisplayNameFor(m => m.UserName) })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Roles, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.DropDownList("Roles", null, new { @class = "" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "input-st", placeholder = "Please Enter " + @Html.DisplayNameFor(m => m.Email) })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.PasswordFor(m => m.Password, new { @class = "input-st", placeholder = "Please Enter " + @Html.DisplayNameFor(m => m.Password) })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "input-st", placeholder = "Please Enter " + @Html.DisplayNameFor(m => m.ConfirmPassword) })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-9">
+                            <input type="submit" class="btn btn-default  btn-sb" value="Register" />
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-md-4">
+                <img class="img-responsive img-circle img_ds" src="~/img/undraw_Interview_re_e5jn.png" />
+
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

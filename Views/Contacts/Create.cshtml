@@ -1,0 +1,94 @@
+﻿@model ASP_IDENTITY.Models.Contact
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/RegisterStyle.css" rel="stylesheet">
+
+<section class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 contact-details">
+                <h2 class="contact-head"><i class="fa  fa-comments" style="color: #feb64a"></i> @ViewBag.Title.</h2>
+
+
+                <address class="address">
+                    One Microsoft Way<br />
+                    <i class="fa fa-map-marker"></i>  Redmond, WA 98052-6399<br />
+                    <i class="fa fa-phone"></i>
+                    425.555.0100
+                </address>
+
+                <address>
+                    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+                    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+                </address>
+            </div>
+            @using (Html.BeginForm())
+            {
+                <div class="col-sm-12 col-md-6  send-message">
+                    <div class="formContact">
+                        <h4 class="text-center send-head">Contact Us</h4>
+                        <h6 class="text-center">We'd Like to Hear From You!</h6>
+                        <div class="formContains">
+
+
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+                                
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", placeholder = "Please Enter Your Username " , required = "required" } } )
+                                        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Please Enter Your Email ", required = "required" } })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.message, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.message, new
+                                   {
+                                       @class = "form-control",
+                                       cols = "50",
+                                       rows = "5",
+                                       placeholder = "Please Enter Your Message ",
+                                       required = "required"
+                                   })
+                                        @Html.ValidationMessageFor(model => model.message, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Create" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+                }
+            </div>
+
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+    </div>
+            
+</section>

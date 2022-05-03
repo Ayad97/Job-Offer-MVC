@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ASP_IDENTITY.Models.AddSponsor>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/RegisterStyle.css" rel="stylesheet">
+
+<div class="container">
+
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.sponsorImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sponsorTittle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sponsorContent)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img class="img-responsive img-rounded" src="~/Testphoto/@Html.DisplayFor(Model=> item.sponsorImage)" style="width:50px ; height:50px;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sponsorTittle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sponsorContent)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
